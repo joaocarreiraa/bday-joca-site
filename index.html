@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>joaolucasbday</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        awsDark: '#0b0f19',
+                        awsCard: '#111827',
+                        awsBlue: '#38bdf8',
+                        awsBlueHover: '#0ea5e9',
+                        awsBorder: '#1e293b'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="bg-awsDark min-h-screen text-slate-100 flex flex-col justify-between selection:bg-awsBlue selection:text-awsDark">
+    <header class="w-full border-b border-awsBorder bg-awsDark/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="site-header-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <a href="#inicio" class="site-logo font-display font-bold tracking-wider text-white">
+                Logo Joca Bday
+            </a>
+
+            <div class="turntable-container" aria-label="Seleção de músicas">
+                <div class="turntable" id="turntable" aria-label="Prato do toca-discos"
+                     ondragover="allowDrop(event)" ondrop="dropToTurntable(event)">
+                    <span class="placeholder-text">Solte aqui</span>
+                </div>
+
+                <div class="shelf" id="shelf" aria-label="Discos disponíveis"
+                     ondragover="allowDrop(event)" ondrop="dropToShelf(event)">
+                    <div class="vinyl" draggable="true" ondragstart="drag(event)" onclick="playRecord(event)"
+                         onkeydown="playRecordWithKeyboard(event)" tabindex="0" role="button"
+                         aria-label="Tocar música 1" id="disco1" data-song="musica1.mp3">
+                        <div class="vinyl-inner">HIT 1</div>
+                    </div>
+                    <div class="vinyl" draggable="true" ondragstart="drag(event)" onclick="playRecord(event)"
+                         onkeydown="playRecordWithKeyboard(event)" tabindex="0" role="button"
+                         aria-label="Tocar música 2" id="disco2" data-song="musica2.mp3">
+                        <div class="vinyl-inner">HIT 2</div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="site-navigation text-sm font-medium" aria-label="Navegação principal">
+                <a href="#inicio" class="hover:text-awsBlue transition-colors">Início</a>
+                <a href="#galeria" class="hover:text-awsBlue transition-colors">Galeria</a>
+            </nav>
+        </div>
+        <audio id="audioPlayer"></audio>
+    </header>
+</body>
+</html>
